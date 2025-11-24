@@ -15,6 +15,9 @@ A modern, full-stack web application for clients to submit their travel itinerar
   - Special requests
 
 - **Modern UI**: Beautiful, responsive design with gradient backgrounds and smooth animations
+- **Rough-Cut Suggestions**: Instantly surfaces curated experiences per destination so clients can pick what interests them while detailed planning continues in the background
+- **Live Place Lookup**: Uses OpenStreetMap + Wikipedia data to confirm each destination and list real attractions; invalid locations receive a “location not found” warning
+- **Approximate Pricing**: Curated catalogs (e.g., Singapore, Bangkok) include estimated local + USD pricing per attraction so clients can shortlist with budgets in mind
 - **Data Persistence**: SQLite database to store all itinerary requests
 - **RESTful API**: Express.js backend with proper error handling
 - **React Frontend**: Fast, interactive user interface built with React and Vite
@@ -89,7 +92,7 @@ itinerary-project/
 ## API Endpoints
 
 - `GET /api/health` - Health check endpoint
-- `POST /api/itinerary` - Submit a new itinerary request
+- `POST /api/itinerary` - Submit a new itinerary request and receive rough-cut suggestions
 - `GET /api/itineraries` - Get all itinerary requests
 - `GET /api/itinerary/:id` - Get a specific itinerary by ID
 
@@ -101,7 +104,12 @@ itinerary-project/
 4. Select your food and stay preferences
 5. Add any additional information about sightseeing, permissions, or special requests
 6. Submit the form
-7. You'll receive a confirmation with your request ID
+7. Watch the planner pull live attraction data (with indicative prices for curated cities such as Singapore) for each destination (requires internet access)
+8. Tick the suggested experiences you love or start over with a fresh request
+
+## External Data
+
+The server calls the public Nominatim (OpenStreetMap) and Wikipedia GeoSearch APIs to validate destinations and pull nearby attractions. Make sure the machine running the backend has internet access; otherwise suggestion cards will show fallback messages.
 
 ## Database Schema
 

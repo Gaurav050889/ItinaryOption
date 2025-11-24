@@ -34,51 +34,36 @@
   font-weight: 300;
 }
 
-.success-message {
+.loading-panel {
   padding: 4rem 2rem;
   text-align: center;
 }
 
-.success-icon {
-  width: 80px;
-  height: 80px;
+.spinner {
+  width: 64px;
+  height: 64px;
+  border: 6px solid var(--border-color);
+  border-top-color: var(--primary-color);
   border-radius: 50%;
-  background: var(--success-color);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
   margin: 0 auto 1.5rem;
-  font-weight: bold;
+  animation: spin 1s linear infinite;
 }
 
-.success-message h2 {
+.loading-panel h2 {
   color: var(--text-primary);
-  margin-bottom: 1rem;
-  font-size: 2rem;
-}
-
-.success-message p {
-  color: var(--text-secondary);
   margin-bottom: 0.5rem;
-  font-size: 1.1rem;
 }
 
-.submission-id {
-  font-weight: 600;
-  color: var(--primary-color);
-  margin: 1rem 0;
+.loading-panel p {
+  color: var(--text-secondary);
+  max-width: 460px;
+  margin: 0 auto;
 }
 
-.success-note {
-  margin-top: 1.5rem;
-  padding: 1rem;
-  background: var(--bg-secondary);
-  border-radius: 10px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 768px) {
@@ -90,8 +75,8 @@
     font-size: 1rem;
   }
 
-  .success-message {
-    padding: 2rem 1.5rem;
+  .loading-panel {
+    padding: 2.5rem 1.5rem;
   }
 }
 

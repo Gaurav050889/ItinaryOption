@@ -154,7 +154,17 @@ const ItineraryForm = ({ onSuccess }) => {
         throw new Error(data.error || 'Failed to submit itinerary');
       }
 
-      onSuccess(data.id);
+      onSuccess({
+        id: data.id,
+        suggestions: data.suggestions || [],
+        formSnapshot: {
+          name: formData.name,
+          email: formData.email,
+          budget: parseFloat(formData.budget),
+          days: parseInt(formData.days, 10),
+          destinations: formData.destinations,
+        },
+      });
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('Failed to submit itinerary. Please try again.');
